@@ -1,0 +1,22 @@
+appId: com.conkyeditor.app
+productName: Conky Editor
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - package.json
+linux:
+  target:
+    - AppImage
+  category: Utility
+  maintainer: Your Name
+mac:
+  category: public.app-category.utilities
+  target:
+    - dmg
+    - zip
+win:
+  target:
+    - nsis
+    - portable
