@@ -167,8 +167,8 @@ ipcMain.handle('select-config-file', async () => {
 ipcMain.handle('read-config', async (_event: IpcMainInvokeEvent, configPath: string) => {
   try {
     const content = await fs.readFile(configPath, 'utf-8');
-    const { config, textSection } = parseConkyConfig(content);
-    return { success: true, data: config, rawContent: content, textSection };
+    const config = parseConkyConfig(content);
+    return { success: true, data: config, rawContent: content };
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       return { success: false, error: `Config file not found: ${configPath}` };
